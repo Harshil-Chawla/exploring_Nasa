@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA APOD Viewer</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline preload="metadata">
+            <source src="space video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <nav class="navbar">
+        <h1>NASA APOD</h1>
+        <div class="nav-controls">
+            <label for="dateInput">Date</label>
+            <input type="date" id="dateInput">
+            <button id="searchBtn">Search</button>
+            <button id="todayBtn">Today</button>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div id="result" class="result-box">
+            <p>Loading...</p>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
