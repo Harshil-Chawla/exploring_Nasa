@@ -7,8 +7,16 @@
 body {
     font-family: Arial, sans-serif;
     background: #020617;
-    color: white;
     min-height: 100vh;
+    transition: color 0.3s ease;
+}
+
+body.light-mode {
+    color: #0f172a;
+}
+
+body.dark-mode {
+    color: #eff6ff;
 }
 
 .video-background {
@@ -23,19 +31,21 @@ body {
     object-fit: cover;
 }
 
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     padding: 20px 28px;
-    background: rgba(0, 0, 0, 0.45);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(15, 23, 42, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
 }
 
 .navbar h1 {
     font-size: 28px;
+    color: #ffffff;
+    opacity: 1;
 }
 
 .nav-controls {
@@ -49,22 +59,33 @@ body {
     font-size: 14px;
 }
 
-.nav-controls input,
-.nav-controls button {
+.control {
     padding: 10px 12px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
     font: inherit;
 }
 
-.nav-controls input {
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
+body.light-mode .control {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.35);
+    color: #0f172a;
 }
 
-.nav-controls button {
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
+body.dark-mode .control {
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(0, 0, 0, 0.28);
+    color: #eff6ff;
+}
+
+body.light-mode input[type="date"] {
+    color-scheme: light;
+}
+
+body.dark-mode input[type="date"] {
+    color-scheme: dark;
+}
+
+button.control {
     cursor: pointer;
 }
 
@@ -76,8 +97,19 @@ body {
 
 .result-box {
     padding: 24px;
-    background: transparent;
-    border-radius: 14px;
+    border-radius: 24px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.22);
+}
+
+body.light-mode .result-box {
+    background: rgba(255, 255, 255, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+body.dark-mode .result-box {
+    background: rgba(0, 0, 0, 0.34);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .title-box,
@@ -97,14 +129,24 @@ body {
     text-align: center;
 }
 
+.title-box h1 {
+    color: #ffffff;
+}
+
 .result-date {
     margin-bottom: 18px;
-    color: #cbd5e1;
     text-align: center;
 }
 
-.result-box img,
-.result-box iframe {
+body.light-mode .result-date {
+    color: #334155;
+}
+
+body.dark-mode .result-date {
+    color: #cbd5e1;
+}
+
+.result-box img {
     width: 100%;
     max-width: 600px;
     max-height: 460px;
@@ -115,14 +157,45 @@ body {
     object-fit: cover;
 }
 
-.result-box iframe {
-    min-height: 460px;
-    border: 0;
-}
-
 .result-box p {
     line-height: 1.6;
     text-align: center;
+}
+
+.video-link-box {
+    max-width: 600px;
+    margin: 16px auto;
+    padding: 28px 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.light-mode .video-link-box {
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+body.dark-mode .video-link-box {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.video-link-box a {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+body.light-mode .video-link-box a {
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #0f172a;
+}
+
+body.dark-mode .video-link-box a {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #eff6ff;
 }
 
 .error-text {
